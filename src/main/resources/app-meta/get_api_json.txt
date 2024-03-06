@@ -1,0 +1,56 @@
+"/v1.1/employees": {
+      "get": {
+        "tags": [
+          "Employee"
+        ],
+        "summary": "Get Employees Details",
+        "description": "Get Employees Details",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "email",
+            "in": "query",
+            "description": "User Email",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "client_id",
+            "in": "header",
+            "description": "Client ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "client_secret",
+            "in": "header",
+            "description": "Client Secret",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "Auth Token",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful, get the EwayBill Details.",
+            "schema": {
+              "$ref": "#/definitions/Response"
+            }
+          },
+          "404": {
+            "description": "Not Found. If requested entity is not found or if requested API is not found."
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    }

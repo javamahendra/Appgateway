@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<workbook>
+  <worksheet name="Invoices">
+  	<loop startRow="0" endRow="0">
+  		<loopbreakcondition>
+	  		<rowcheck offset="0">
+	  			<cellcheck offset="0">* Indicates mandatory</cellcheck>
+	  		</rowcheck>
+  		</loopbreakcondition>
+  	</loop>
+	<loop startRow="1" endRow="1">
+		<loopbreakcondition>
+		<rowcheck offset="1">
+            <cellcheck offset="0">Invoice No*</cellcheck>
+			<cellcheck offset="1">Invoice Date*</cellcheck>
+			<cellcheck offset="2">GSTIN</cellcheck>
+			<cellcheck offset="3">Customer Name</cellcheck>
+			<cellcheck offset="4">Place Of Supply*</cellcheck>
+			<cellcheck offset="5">Quantity*</cellcheck>
+			<cellcheck offset="6">Item Rate*</cellcheck>
+			<cellcheck offset="7">Discount</cellcheck>
+			<cellcheck offset="8">Total Taxable Value*</cellcheck>
+			<cellcheck offset="9">IGST Rate*</cellcheck>
+			<cellcheck offset="10">IGST Amount*</cellcheck>
+			<cellcheck offset="11">CGST Rate*</cellcheck>
+			<cellcheck offset="12">CGST Amount*</cellcheck>
+			<cellcheck offset="13">SGST Rate*</cellcheck>
+			<cellcheck offset="14">SGST Amount*</cellcheck>
+			<cellcheck offset="15">Total Invoice Value*</cellcheck>
+        </rowcheck>
+		</loopbreakcondition>
+	</loop>
+	<section startRow="1" endRow="1" />
+	<loop startRow="2" endRow="2" items="invoiceList" var="invoice" varType="com.app.domain.Invoice">
+	  <section startRow="2" endRow="2">
+		<mapping row="2" col="0">invoice.inum</mapping>
+		<mapping row="2" col="1">invoice.strDate</mapping>
+		<mapping row="2" col="2" nullAllowed="true">invoice.gtin</mapping>
+		<mapping row="2" col="3">invoice.billedtoname</mapping>
+		<mapping row="2" col="4" nullAllowed="true">invoice.statename</mapping>
+		<mapping row="2" col="5">invoice.quantity</mapping>
+		<mapping row="2" col="6">invoice.rateperitem</mapping>
+		<mapping row="2" col="7" nullAllowed="true">invoice.discount</mapping>
+		<mapping row="2" col="8">invoice.taxablevalue</mapping>
+		<mapping row="2" col="9" nullAllowed="true">invoice.igstrate</mapping>
+		<mapping row="2" col="10" nullAllowed="true">invoice.igstamount</mapping>
+		<mapping row="2" col="11" nullAllowed="true">invoice.cgstrate</mapping>
+		<mapping row="2" col="12" nullAllowed="true">invoice.cgstamount</mapping>
+		<mapping row="2" col="13" nullAllowed="true">invoice.sgstrate</mapping>
+		<mapping row="2" col="14" nullAllowed="true">invoice.sgstamount</mapping>
+		<mapping row="2" col="15">invoice.total</mapping>
+	  </section>
+	  <loopbreakcondition>
+		<rowcheck offset="0">
+		  <cellcheck offset="0" />
+		</rowcheck>
+	  </loopbreakcondition>
+	</loop>
+  </worksheet>
+</workbook>

@@ -1,0 +1,20 @@
+{
+	"type": "object",
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"description": "Schema for GenerateToken",
+	"title": "GenerateToken",
+	"required": [
+		"email",
+		"password"
+	],
+	"properties": {
+		"email": {
+			"type": "string",
+			"description": "Email of the Login User"
+		},
+		"password": {
+			"type": "string",
+			"description": "Password of the Login User"
+		}
+	}
+}

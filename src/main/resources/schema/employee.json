@@ -1,0 +1,50 @@
+{
+  "type" : "object",
+  "$schema" : "http://json-schema.org/draft-04/schema#",
+  "description" : "Schema for an employee",
+  "title" : "Employee",
+  "required" : [ "address", "id", "gender", "email", "salary", "name", "age" ],
+  "properties" : {
+    "address" : {
+      "type" : "array",
+      "items" : {
+        "type" : "string"
+      },
+      "description" : "Address lines of the employee",
+      "minItems" : 1,
+      "maxItems" : 3,
+      "minLength" : 1,
+      "maxLength" : 30
+    },
+    "id" : {
+      "type" : "integer",
+      "description" : "ID of the employee"
+    },
+    "gender" : {
+      "enum" : [ "Male", "Female" ],
+      "description" : "Gender of the employee"
+    },
+    "profile_image" : {
+      "type" : "string",
+      "description" : "ProfileImage of the employee"
+    },
+    "email" : {
+      "type" : "string",
+      "description" : "Email of the employee"
+   	},
+    "salary" : {
+      "type" : "integer",
+      "description" : "Salary of the employee"
+    },
+    "name" : {
+      "type" : "string",
+      "description" : "Name of the employee",
+      "minLength" : 3,
+      "maxLength" : 30
+   	},
+    "age" : {
+      "type" : "integer",
+      "description" : "Age in years of the employee"
+    }
+  }
+}

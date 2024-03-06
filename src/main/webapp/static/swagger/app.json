@@ -1,0 +1,672 @@
+{
+	"swagger": "2.0",
+	"host": "localhost:9091",
+	"basePath": "/api",
+	"tags": [
+		{
+			"name": "Authentication",
+			"description": "Authentication API"
+		},
+		{
+			"name": "Generate Token",
+			"description": "Generate Token API"
+		},
+		{
+			"name": "Employee",
+			"description": "Employee API"
+		}
+	],
+	"schemes": [
+		"http"
+	],
+	"consumes": [
+		"application/json"
+	],
+	"produces": [
+		"application/json"
+	],
+	"paths": {
+		"/v1.0/authenticate": {
+			"get": {
+				"tags": [
+					"Authentication"
+				],
+				"summary": "Authentication Request",
+				"description": "Authentication Request",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "email",
+						"in": "query",
+						"description": "User Email",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "client_id",
+						"in": "header",
+						"description": "Client ID",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "client_secret",
+						"in": "header",
+						"description": "Client Secret",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "token",
+						"in": "header",
+						"description": "Authorization Token",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Successful Authentication",
+						"schema": {
+							"$ref": "#/definitions/Response"
+						}
+					},
+					"404": {
+						"description": "Not Found. If requested entity is not found or if requested API is not found."
+					},
+					"500": {
+						"description": "Internal server error"
+					}
+				}
+			}
+		},
+		"/v1.0/gentoken": {
+			"post": {
+				"tags": [
+					"Authentication"
+				],
+				"summary": "Generate Token",
+				"description": "Generate Token",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "email",
+						"in": "query",
+						"description": "User Email",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "client_id",
+						"in": "header",
+						"description": "Client ID",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "client_secret",
+						"in": "header",
+						"description": "Client Secret",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"in": "body",
+						"name": "body",
+						"description": "Request Body",
+						"required": true,
+						"schema": {
+							"type": "object",
+							"$schema": "http://json-schema.org/draft-04/schema#",
+							"description": "Schema for GenerateToken",
+							"title": "GenerateToken",
+							"required": [
+								"email",
+								"password"
+							],
+							"properties": {
+								"email": {
+									"type": "string",
+									"description": "Email of the Login User"
+								},
+								"password": {
+									"type": "string",
+									"description": "Password of the Login User"
+								}
+							}
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Successful, Generated Token.",
+						"schema": {
+							"$ref": "#/definitions/Response"
+						}
+					},
+					"404": {
+						"description": "Not Found. If requested entity is not found or if requested API is not found."
+					},
+					"500": {
+						"description": "Internal server error"
+					}
+				}
+			}
+		},
+		"/v1.0/employees": {
+			"get": {
+				"tags": [
+					"Employee"
+				],
+				"summary": "Get Employees Details",
+				"description": "Get Employees Details",
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "email",
+						"in": "query",
+						"description": "User Email",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "client_id",
+						"in": "header",
+						"description": "Client ID",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "client_secret",
+						"in": "header",
+						"description": "Client Secret",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "token",
+						"in": "header",
+						"description": "Auth Token",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Successful, get the Employee Details.",
+						"schema": {
+							"$ref": "#/definitions/Response"
+						}
+					},
+					"404": {
+						"description": "Not Found. If requested entity is not found or if requested API is not found."
+					},
+					"500": {
+						"description": "Internal server error"
+					}
+				}
+			}
+		},
+		"/v1.0/employee": {
+			"get": {
+				"tags": [
+					"Employee"
+				],
+				"summary": "Get Employee Details  by Id",
+				"description": "Get Employee Details by Id ",
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "email",
+						"in": "query",
+						"description": "User Email",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "empid",
+						"in": "query",
+						"description": "Employee Id",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "client_id",
+						"in": "header",
+						"description": "Client ID",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "client_secret",
+						"in": "header",
+						"description": "Client Secret",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "token",
+						"in": "header",
+						"description": "Auth Token",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Successful, get the Employee Details.",
+						"schema": {
+							"$ref": "#/definitions/Response"
+						}
+					},
+					"404": {
+						"description": "Not Found. If requested entity is not found or if requested API is not found."
+					},
+					"500": {
+						"description": "Internal server error"
+					}
+				}
+			}
+		},
+		"/v1.0/delete": {
+			"delete": {
+				"tags": [
+					"Employee"
+				],
+				"summary": "Delete Employee Details  by Id",
+				"description": "Delete Employee Details by Id ",
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "email",
+						"in": "query",
+						"description": "User Email",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "empid",
+						"in": "query",
+						"description": "Employee Id",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "client_id",
+						"in": "header",
+						"description": "Client ID",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "client_secret",
+						"in": "header",
+						"description": "Client Secret",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "token",
+						"in": "header",
+						"description": "Auth Token",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Successful, Delete the Employe Details.",
+						"schema": {
+							"$ref": "#/definitions/Response"
+						}
+					},
+					"404": {
+						"description": "Not Found. If requested entity is not found or if requested API is not found."
+					},
+					"500": {
+						"description": "Internal server error"
+					}
+				}
+			}
+		},
+		"/v1.0/update": {
+			"put": {
+				"tags": [
+					"Employee"
+				],
+				"summary": "Update the Employee Details",
+				"description": "Update the Employee Details",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "email",
+						"in": "query",
+						"description": "User Email",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "emp_id",
+						"in": "query",
+						"description": "Employee Id",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "client_id",
+						"in": "header",
+						"description": "Client ID",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "client_secret",
+						"in": "header",
+						"description": "Client Secret",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "token",
+						"in": "header",
+						"description": "Auth Token",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"in": "body",
+						"name": "body",
+						"description": "Request Body",
+						"required": true,
+						"schema": {
+							"type": "object",
+							"$schema": "http://json-schema.org/draft-04/schema#",
+							"description": "Schema for an employee",
+							"title": "Employee",
+							"required": [
+								"address",
+								"id",
+								"gender",
+								"email",
+								"salary",
+								"name",
+								"age"
+							],
+							"properties": {
+								"address": {
+									"type": "array",
+									"items": {
+										"type": "string"
+									},
+									"description": "Address lines of the employee",
+									"minItems": 1,
+									"maxItems": 3,
+									"minLength": 1,
+									"maxLength": 30
+								},
+								"id": {
+									"type": "integer",
+									"description": "ID of the employee"
+								},
+								"gender": {
+									"enum": [
+										"Male",
+										"Female"
+									],
+									"description": "Gender of the employee"
+								},
+								"profile_image": {
+									"type": "string",
+									"description": "ProfileImage of the employee"
+								},
+								"email": {
+									"type": "string",
+									"description": "Email of the employee"
+								},
+								"salary": {
+									"type": "integer",
+									"description": "Salary of the employee"
+								},
+								"name": {
+									"type": "string",
+									"description": "Name of the employee",
+									"minLength": 3,
+									"maxLength": 30
+								},
+								"age": {
+									"type": "integer",
+									"description": "Age in years of the employee"
+								}
+							}
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Successful, Create the Employee Details.",
+						"schema": {
+							"$ref": "#/definitions/Response"
+						}
+					},
+					"404": {
+						"description": "Not Found. If requested entity is not found or if requested API is not found."
+					},
+					"500": {
+						"description": "Internal server error"
+					}
+				}
+			}
+		},
+		"/v1.0/create": {
+			"post": {
+				"tags": [
+					"Employee"
+				],
+				"summary": "Create the Employee Details",
+				"description": "Create the Employee Details",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "email",
+						"in": "query",
+						"description": "User Email",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "client_id",
+						"in": "header",
+						"description": "Client ID",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "client_secret",
+						"in": "header",
+						"description": "Client Secret",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "token",
+						"in": "header",
+						"description": "Auth Token",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"in": "body",
+						"name": "body",
+						"description": "Request Body",
+						"required": true,
+						"schema": {
+							"type": "object",
+							"$schema": "http://json-schema.org/draft-04/schema#",
+							"description": "Schema for an employee",
+							"title": "Employee",
+							"required": [
+								"address",
+								"id",
+								"gender",
+								"email",
+								"salary",
+								"name",
+								"age"
+							],
+							"properties": {
+								"address": {
+									"type": "array",
+									"items": {
+										"type": "string"
+									},
+									"description": "Address lines of the employee",
+									"minItems": 1,
+									"maxItems": 3,
+									"minLength": 1,
+									"maxLength": 30
+								},
+								"id": {
+									"type": "integer",
+									"description": "ID of the employee"
+								},
+								"gender": {
+									"enum": [
+										"Male",
+										"Female"
+									],
+									"description": "Gender of the employee"
+								},
+								"profile_image": {
+									"type": "string",
+									"description": "ProfileImage of the employee"
+								},
+								"email": {
+									"type": "string",
+									"description": "Email of the employee"
+								},
+								"salary": {
+									"type": "integer",
+									"description": "Salary of the employee"
+								},
+								"name": {
+									"type": "string",
+									"description": "Name of the employee",
+									"minLength": 3,
+									"maxLength": 30
+								},
+								"age": {
+									"type": "integer",
+									"description": "Age in years of the employee"
+								}
+							}
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Successful, Create the Employee Details.",
+						"schema": {
+							"$ref": "#/definitions/Response"
+						}
+					},
+					"404": {
+						"description": "Not Found. If requested entity is not found or if requested API is not found."
+					},
+					"500": {
+						"description": "Internal server error"
+					}
+				}
+			}
+		}
+	},
+	"definitions": {
+		"Error Payload": {
+			"type": "object",
+			"required": [
+				"code",
+				"desc",
+				"error_cd",
+				"message"
+			],
+			"properties": {
+				"message": {
+					"type": "string",
+					"description": "Error Message"
+				},
+				"error_cd": {
+					"type": "string",
+					"description": "Error Code"
+				},
+				"code": {
+					"type": "string",
+					"description": "Server Error Code"
+				},
+				"desc": {
+					"type": "string",
+					"description": "Server Error Description"
+				}
+			},
+			"description": "If anything goes wrong error payload will be return"
+		},
+		"Response": {
+			"type": "object",
+			"required": [
+				"header",
+				"status_cd",
+				"status_desc"
+			],
+			"properties": {
+				"status_cd": {
+					"type": "string",
+					"description": "Status Code"
+				},
+				"status_desc": {
+					"type": "string",
+					"description": "Status Description"
+				},
+				"error": {
+					"description": "Error Payload",
+					"$ref": "#/definitions/Error Payload"
+				},
+				"header": {
+					"type": "object",
+					"description": "Header Map",
+					"additionalProperties": {
+						"type": "string"
+					}
+				},
+				"data": {
+					"type": "string",
+					"description": "GST response data"
+				}
+			},
+			"description": "Response which contains status code and header and data"
+		}
+	}
+}

@@ -1,0 +1,60 @@
+.bootstrap-tagsinput,.pfilter,.sfilter,.gstr2afilter,.mismatchfilter {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  display: inline-block;
+  padding:1px 2px;
+  color: #555;
+  vertical-align: middle;
+  border-radius: 4px;
+  max-width: 100%;
+  min-height:25px;
+   cursor: text; width:100%;
+   position:relative;
+}
+.bootstrap-tagsinput input,.pfilter input,.sfilter input,.gstr2afilter input,.mismatchfilter input {
+  border: none;
+  box-shadow: none;
+  outline: none;
+  background-color: transparent;
+  padding: 0 2px;
+  margin: 0;
+  width: auto;
+  max-width: inherit;
+}
+.bootstrap-tagsinput.form-control input::-moz-placeholder,.pfilter.form-control input::-moz-placeholder,.sfilter.form-control input::-moz-placeholder ,.gstr2afilter.form-control input::-moz-placeholder ,.mismatchfilter.form-control input::-moz-placeholder {
+  color: #777;
+  opacity: 1;
+}
+.bootstrap-tagsinput.form-control input:-ms-input-placeholder,.pfilter.form-control input:-ms-input-placeholder,.sfilter.form-control input:-ms-input-placeholder ,.gstr2afilter.form-control input:-ms-input-placeholder ,.mismatchfilter.form-control input:-ms-input-placeholder {
+  color: #777;
+}
+.bootstrap-tagsinput.form-control input::-webkit-input-placeholder,.pfilter.form-control input::-webkit-input-placeholder,.sfilter.form-control input::-webkit-input-placeholder,.gstr2afilter.form-control input::-webkit-input-placeholder,.mismatchfilter.form-control input::-webkit-input-placeholder {
+  color: #777;
+}
+.bootstrap-tagsinput input:focus,.pfilter input:focus,.sfilter input:focus,.gstr2afilter input:focus,.mismatchfilter input:focus {
+  border: none;
+  box-shadow: none;
+}
+.bootstrap-tagsinput .tag,.pfilter .tag,.sfilter .tag,.gstr2afilter .tag,.mismatchfilter .tag {
+  margin-right: 2px;
+  color: white;
+}
+.bootstrap-tagsinput .tag [data-role="remove"],.pfilter .tag [data-role="remove"],.sfilter .tag [data-role="remove"],.gstr2afilter .tag [data-role="remove"],.mismatchfilter .tag [data-role="remove"] {
+  margin-left: 8px;
+  cursor: pointer;
+}
+.bootstrap-tagsinput .tag [data-role="remove"]:after,.pfilter .tag [data-role="remove"]:after,.sfilter .tag [data-role="remove"]:after,.gstr2afilter .tag [data-role="remove"]:after,.mismatchfilter .tag [data-role="remove"]:after {
+  content: "x";
+  padding: 0px 2px;
+}
+.bootstrap-tagsinput .tag [data-role="remove"]:hover,.pfilter .tag [data-role="remove"]:hover,.sfilter .tag [data-role="remove"]:hover ,.gstr2afilter .tag [data-role="remove"]:hover ,.mismatchfilter .tag [data-role="remove"]:hover  {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+.bootstrap-tagsinput .tag [data-role="remove"]:hover:active,.pfilter .tag [data-role="remove"]:hover:active,.sfilter .tag [data-role="remove"]:hover:active,.gstr2afilter .tag [data-role="remove"]:hover:active,.mismatchfilter .tag [data-role="remove"]:hover:active {
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+.bootstrap-tagsinput,.pfilter,.sfilter,.gstr2afilter,.mismatchfilter { background-color: #fff; border: 1px solid #ccc; box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); display: inline-block; color: #555; vertical-align: middle; border-radius: 4px; max-width: 100%;cursor: text; }
+.bootstrap-tagsinput .tag,.pfilter .tag,.sfilter .tag,.gstr2afilter .tag,.mismatchfilter .tag{ margin-right: 2px; color: white; padding: 0px 5px; border-radius: 2px;    font-size:12px;}
+.label-info { background-color: #5bc0de; }
+

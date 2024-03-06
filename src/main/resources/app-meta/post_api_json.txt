@@ -1,0 +1,75 @@
+"/v1.0/gentoken": {
+      "post": {
+        "tags": [
+          "Generate Token"
+        ],
+        "summary": "Generate Token",
+        "description": "Generate Token",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "email",
+            "in": "query",
+            "description": "User Email",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "client_id",
+            "in": "header",
+            "description": "Client ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "client_secret",
+            "in": "header",
+            "description": "Client Secret",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Request Body",
+            "required": true,
+            "schema": {
+				"type" : "object",
+				"$schema" : "http://json-schema.org/draft-04/schema#",
+				"description" : "Schema for GenerateToken",
+				"title" : "GenerateToken",
+				"required" : [ "email", "password" ],
+				"properties" : {
+					"email" : {
+						"type" : "string",
+						"description" : "Email of the Login User"
+					},
+					"password" : {
+						"type" : "string",
+						"description" : "Password of the Login User"
+					}
+				}
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful, Generated Eway Bill.",
+            "schema": {
+              "$ref": "#/definitions/Response"
+            }
+          },
+          "404": {
+            "description": "Not Found. If requested entity is not found or if requested API is not found."
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
