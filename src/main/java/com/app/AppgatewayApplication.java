@@ -41,8 +41,7 @@ public class AppgatewayApplication extends SpringBootServletInitializer {
 		//System.out.println(configProperties);
 		
 		User user1 = new User();
-
-		user1.setEmail("mahendra.gadiparthi@tcs.com");
+		user1.setEmail("javabymahendra@gmail.com");
 		user1.setMobileno("9876543210");
 		user1.setPassword("123456");
 		user1.setFirstname("Mahendra");
